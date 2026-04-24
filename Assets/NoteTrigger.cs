@@ -15,6 +15,10 @@ public class NoteTrigger : MonoBehaviour
     [SerializeField]
     GameObject noteObject;
 
+    public AudioSource fuenteDeAudio;
+    public AudioClip sonidoCoger;
+    public AudioClip sonidoDejar;
+
     private void OnTriggerEnter(Collider other)
     {
         pressERead.SetActive(true);
@@ -40,10 +44,12 @@ public class NoteTrigger : MonoBehaviour
             noteUI.SetActive(true);
             pressERead.SetActive(false);
             pressESave.SetActive(true);
+            fuenteDeAudio.PlayOneShot(sonidoCoger);
         }else if(pressESave.activeSelf && Keyboard.current.eKey.wasPressedThisFrame)
         {
             noteUI.SetActive(false);
             pressESave.SetActive(false);
+            fuenteDeAudio.PlayOneShot(sonidoDejar);
         }
     }
 }
