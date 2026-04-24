@@ -6,6 +6,9 @@ public class PhoneTrigger : MonoBehaviour
     [SerializeField]
     GameObject pressECall;
 
+    public AudioSource audio;
+    public AudioClip Sonido;
+
     private void OnTriggerEnter(Collider other)
     {
         pressECall.SetActive(true);
@@ -25,7 +28,7 @@ public class PhoneTrigger : MonoBehaviour
     {
         if(pressECall.activeSelf && Keyboard.current.eKey.wasPressedThisFrame)
         {
-
+            audio.PlayOneShot(Sonido);
         }
     }
 }
