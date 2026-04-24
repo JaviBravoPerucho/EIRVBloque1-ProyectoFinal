@@ -9,7 +9,6 @@ public class SoundTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         fuenteDeAudio.PlayOneShot(sonido);
-        fuenteDeAudio = null;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
