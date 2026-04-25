@@ -9,6 +9,11 @@ public class PhoneTrigger : MonoBehaviour
     public AudioSource audio;
     public AudioClip Sonido;
 
+    float elapsedTime = 0;
+    float soundTime = 21.5f;
+    bool startTime = false;
+
+    public GameObject Arboles;
     private void OnTriggerEnter(Collider other)
     {
         pressECall.SetActive(true);
@@ -29,6 +34,16 @@ public class PhoneTrigger : MonoBehaviour
         if(pressECall.activeSelf && Keyboard.current.eKey.wasPressedThisFrame)
         {
             audio.PlayOneShot(Sonido);
+            startTime = true;
+        }
+        if (startTime)
+        {
+            elapsedTime += Time.deltaTime;
+            if(elapsedTime > soundTime)
+            {
+                Arboles.SetActive(true);
+                startTime = false;
+            }
         }
     }
 }
