@@ -16,6 +16,9 @@ public class EndTrigger : MonoBehaviour
         source.PlayOneShot(sound);
         GetComponent<BoxCollider>().enabled = false;
         controller.enabled = false;
+        endTitle.SetActive(true);
+        endTitle.GetComponent<FadeInUI>().AparecerDesdeLaNada();
+        Cursor.lockState = CursorLockMode.None;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
