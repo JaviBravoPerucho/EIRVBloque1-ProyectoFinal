@@ -9,9 +9,14 @@ public class ArbolesTrigger : MonoBehaviour
     public GameObject trees;
     bool startGrow = false;
 
+    public AudioSource source;
+    public AudioClip clip;
+
     private void OnTriggerEnter(Collider other)
     {
         startGrow = true;
+        source.PlayOneShot(clip);
+        GetComponent<BoxCollider>().enabled = false;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
